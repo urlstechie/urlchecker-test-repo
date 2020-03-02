@@ -1,0 +1,32 @@
+name: Check URLs
+
+on:
+  push:
+    branches:
+    - master
+  pull_request:
+    branches:
+    - master
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: URLs-checker
+      uses: SuperKogito/URLs-checker@0.1.2
+      with:
+        # The project base path.
+        git_path: https://github.com/SuperKogito/URLs-checker-test-repo.git
+
+        # A comma-separated list of file types to cover in the URL checks
+        file_types: .md,.py,.rst
+
+        # Choose whether to include file with no URLs in the prints.
+        print_all: False
+
+        # A comma separated links to exclude during URL checks
+        white_listed_urls: https://superkogito.github.io/figures/fig2.html, https://superkogito.github.io/figures/fig4.html
+
+        # A comma separated patterns to exclude during URL checks
+        white_listed_patterns: https://superkogito.github.io/tables
