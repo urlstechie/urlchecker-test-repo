@@ -32,4 +32,4 @@ jobs:
         white_listed_patterns: https://superkogito.github.io/tables
       
         # choose if the force pass or not 
-        force_pass = False
+        force_pass : False
