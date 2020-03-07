@@ -14,7 +14,7 @@ jobs:
 
     steps:
     - name: URLs-checker
-      uses: SuperKogito/URLs-checker@0.1.2
+      uses: SuperKogito/URLs-checker@0.1.4
       with:
         # The project base path.
         git_path: https://github.com/SuperKogito/URLs-checker-test-repo
@@ -30,3 +30,6 @@ jobs:
 
         # A comma separated patterns to exclude during URL checks
         white_listed_patterns: https://superkogito.github.io/tables
+      
+        # choose if the force pass or not 
+        force_pass = False
