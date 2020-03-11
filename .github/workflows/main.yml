@@ -14,16 +14,22 @@ jobs:
 
     steps:
     - name: URLs-checker
-      uses: SuperKogito/URLs-checker@0.1.4
+      uses: urlstechie/URLs-checker@0.1.5
       with:
         # The project base path.
         git_path: https://github.com/SuperKogito/URLs-checker-test-repo
 
         # A comma-separated list of file types to cover in the URL checks
         file_types: .md,.py,.rst
-
+      
         # Choose whether to include file with no URLs in the prints.
-        print_all: False
+        print_all: false
+
+        # The timeout seconds to provide to requests, defaults to 5 seconds
+        timeout: 5
+
+        # How many times to retry a failed request (each is logged, defaults to 1)
+        retry_count: 3
 
         # A comma separated links to exclude during URL checks
         white_listed_urls: https://superkogito.github.io/figures/fig2.html, https://superkogito.github.io/figures/fig4.html
@@ -32,4 +38,4 @@ jobs:
         white_listed_patterns: https://superkogito.github.io/tables
       
         # choose if the force pass or not 
-        force_pass: False
+        force_pass: false
