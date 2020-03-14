@@ -14,7 +14,7 @@ jobs:
 
     steps:
     - name: URLs-checker
-      uses: urlstechie/URLs-checker@0.1.5
+      uses: urlstechie/URLs-checker@0.1.6
       with:
         # The project base path.
         git_path: https://github.com/SuperKogito/URLs-checker-test-repo
