@@ -14,11 +14,8 @@ jobs:
 
     steps:
     - name: URLs-checker
-      uses: urlstechie/URLs-checker@0.1.6
+      uses: urlstechie/urlchecker-action@0.1.7@0.1.6
       with:
-        # The project base path.
-        git_path: https://github.com/SuperKogito/URLs-checker-test-repo
-
         # A comma-separated list of file types to cover in the URL checks
         file_types: .md,.py,.rst
       
