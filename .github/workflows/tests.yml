@@ -1,0 +1,114 @@
+name: Run urlchecker-action tests
+on: 
+  repository_dispatch
+  push:
+    branches:
+    - master
+    
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: urlchecker-action test 1: test file_types & force_pass
+      uses: urlstechie/urlchecker-action@0.2.0
+      with:
+        # A comma-separated list of file types to cover in the URL checks
+        file_types: .md      
+
+        # choose if the force pass or not 
+        force_pass: true
+
+
+    - name: urlchecker-action test 2: test file_types & print_all & force_pass
+      uses: urlstechie/urlchecker-action@0.2.0
+      with:
+        # A comma-separated list of file types to cover in the URL checks
+        file_types: .md,.py,.rst
+      
+        # Choose whether to include file with no URLs in the prints.
+        print_all: false
+
+        # choose if the force pass or not 
+        force_pass: true
+
+
+      - name: urlchecker-action test 3: test subfolder & file_types & print_all & timeout & retry_count & force_pass
+        uses: urlstechie/urlchecker-action@0.2.0
+        with:
+          # A subfolder or path to navigate to in the present or cloned repository
+          subfolder: test_action
+          
+          # A comma-separated list of file types to cover in the URL checks
+          file_types: .md,.py,.rst
+        
+          # Choose whether to include file with no URLs in the prints.
+          print_all: false
+
+          # The timeout seconds to provide to requests, defaults to 5 seconds
+          timeout: 5
+
+          # How many times to retry a failed request (each is logged, defaults to 1)
+          retry_count: 3
+        
+          # choose if the force pass or not 
+          force_pass: true
+
+
+      - name: urlchecker-action test 4: test file_types & print_all & timeout & retry_count & white_listed_urls & white_listed_patterns & white_listed_files & force_pass
+        uses: urlstechie/urlchecker-action@0.2.0
+        with:
+          # A comma-separated list of file types to cover in the URL checks
+          file_types: .md,.py,.rst
+        
+          # Choose whether to include file with no URLs in the prints.
+          print_all: false
+
+          # The timeout seconds to provide to requests, defaults to 5 seconds
+          timeout: 5
+
+          # How many times to retry a failed request (each is logged, defaults to 1)
+          retry_count: 3
+
+          # A comma separated links to exclude during URL checks
+          white_listed_urls: https://superkogito.github.io/figures/fig2.html, https://superkogito.github.io/figures/fig4.html
+
+          # A comma separated patterns to exclude during URL checks
+          white_listed_patterns: https://superkogito.github.io/tables
+
+          # A comma separated list of file patterns (direct paths work as well) to exclude
+          white_listed_files: README.md
+                    
+          # choose if the force pass or not 
+          force_pass: true
+
+
+      - name: urlchecker-action test 5: test file_types & print_all & timeout & retry_count & white_listed_urls & white_listed_patterns & white_listed_files & save & force_pass
+        uses: urlstechie/urlchecker-action@0.2.0
+        with:
+          # A comma-separated list of file types to cover in the URL checks
+          file_types: .md,.py,.rst
+        
+          # Choose whether to include file with no URLs in the prints.
+          print_all: false
+
+          # The timeout seconds to provide to requests, defaults to 5 seconds
+          timeout: 5
+
+          # How many times to retry a failed request (each is logged, defaults to 1)
+          retry_count: 3
+
+          # A comma separated links to exclude during URL checks
+          white_listed_urls: https://superkogito.github.io/figures/fig2.html, https://superkogito.github.io/figures/fig4.html
+
+          # A comma separated patterns to exclude during URL checks
+          white_listed_patterns: https://superkogito.github.io/tables
+
+          # A comma separated list of file patterns (direct paths work as well) to exclude
+          white_listed_files: README.md
+
+          # choose if the force pass or not 
+          force_pass: true
+          
+          # save results to csv file
+          save: results.csv
