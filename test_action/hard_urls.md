@@ -1,4 +1,3 @@
-https://www.hpcwire.com/2019/01/17/pfizer-hpc-engineer-aims-to-automate-software-stack-testing/
 https://doi.org/10.1063/5.0023771
 https://www.linux.org/
 https://drupal.org/
